@@ -2,13 +2,6 @@
 
 A unified framework for joint change detection and captioning on UAV-based urban construction imagery.
 
----
-
-## Project Structure
-
-```
-
----
 
 ## Data Format
 
