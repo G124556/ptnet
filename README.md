@@ -194,48 +194,6 @@ python test.py \
 
 ---
 
-## 📁 Project Structure
-
-```
-PTNet/
-├── config.py                     # All hyperparameters (dataclass-based)
-├── train.py                      # Training entry point
-├── test.py                       # Evaluation entry point
-├── requirements.txt
-│
-├── data/
-│   ├── dataset.py                # UCCDDataset, PrototypeBuildDataset, dataloaders
-│   ├── transforms.py             # Synchronized augmentation pipeline
-│   ├── tokenizer_utils.py        # Instruction formatting for Qwen2
-│   └── __init__.py
-│
-├── models/
-│   ├── ptnet.py                  # Full model assembly
-│   ├── vision_encoder.py         # CLIP ViT-L/14 + positional encoding interpolation + LoRA
-│   ├── prototype_bank.py         # Learnable prototype bank (K × N × D)
-│   ├── pg_cai.py                 # Prototype-Guided Cross-Aware Interaction
-│   ├── tamg.py                   # Task-Adaptive Multi-head Gating
-│   ├── fpn.py                    # FPN-based change detection decoder
-│   ├── mask_encoder.py           # FPN feature → detection tokens
-│   ├── caption_decoder.py        # Qwen2-1.5B-Instruct + LoRA + VL Projector
-│   ├── clip_text_encoder.py      # Frozen CLIP text encoder for alignment loss
-│   └── __init__.py
-│
-├── utils/
-│   ├── losses.py                 # DetectionLoss, AlignmentLoss, DynamicWeightBalancer
-│   ├── metrics.py                # BLEU-1~4, METEOR, ROUGE-L, CIDEr-D, F1, IoU
-│   ├── lr_scheduler.py           # Warmup + cosine decay
-│   ├── logger.py                 # WandB + TensorBoard + AverageMeter
-│   └── misc.py                   # Distributed utils, checkpoint, param groups
-│
-├── engine/
-│   ├── trainer.py                # Training loop with AMP + gradient accumulation
-│   └── evaluator.py              # Evaluation loop with beam search generation
-│
-└── scripts/
-    └── build_prototypes.py       # Offline K-means + RBF prototype initialization
-```
-
 ---
 
 ## 📄 License
